@@ -1,8 +1,23 @@
+# Machine Learning
 pandas
 numpy
 scikit-learn
-matplotlib
-streamlit
 joblib
+
+# Web Applications
+fastapi
+uvicorn
+streamlit
+pydantic
+
+# Development
+pytest
+pytest-cov
+black
+flake8
+isort
+
+# Research Notebook
+matplotlib
 jupyter
 notebook

@@ -1,0 +1,2 @@
+group_a_model,group_a_prediction,group_a_confidence,group_a_latency_ms,group_b_model,group_b_prediction,group_b_confidence,group_b_latency_ms,prediction_agreement
+Production,ENGINEERING,34.0,106.48,Candidate,ENGINEERING,39.43,2.53,True
