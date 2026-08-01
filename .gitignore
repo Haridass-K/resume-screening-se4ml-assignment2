@@ -39,6 +39,14 @@ database/*.db
 *.pkl
 *.joblib
 
+# Keep production model
+!models/
+!models/production/
+!models/production/resume_screening_model.pkl
+
+# Ignore research models
+models/research/
+
 # --------------------------------------------------
 # Test & Coverage
 # --------------------------------------------------

@@ -2,7 +2,8 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.metrics import (accuracy_score, f1_score, precision_score,
+                             recall_score)
 from sklearn.model_selection import train_test_split
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

@@ -1,35 +1,64 @@
-# Software Engineering for Machine Learning: AI-Powered Resume Screening and Job Role Prediction System
+# Software Engineering for Machine Learning: Production-Ready AI Resume Screening and Job Role Prediction System
 
 ## Course
 
 **AIMLCZG546 – Software Engineering for Machine Learning**  
-Assignment I
+**Assignment II**
 
 ---
 
 # Project Overview
 
-This project presents an AI-powered Resume Screening and Job Role Prediction System developed as part of the Software Engineering for Machine Learning (SE4ML) course. The application automatically analyzes resume text and predicts the most suitable job category using Natural Language Processing (NLP) and Machine Learning techniques.
+This project presents a **Production-Ready AI Resume Screening and Job Role Prediction System** developed as part of the **Software Engineering for Machine Learning (SE4ML)** course.
 
-The solution combines machine learning with software engineering principles by applying the GR4ML framework and implementing architectural patterns to build a modular, maintainable, and scalable application.
+The application automatically analyzes resume content and predicts the most suitable job category using Natural Language Processing (NLP) and Machine Learning techniques.
+
+Unlike Assignment I, this project extends the research prototype into a production-oriented software system by implementing software engineering best practices including:
+
+- Modular software architecture
+- FastAPI REST API
+- Streamlit web application
+- Automated testing
+- Logging
+- Security validation
+- Model and data quality evaluation
+- Production deployment experimentation
+
+---
+
+# Project Components
+
+The project consists of the following major components:
+
+- Research Notebook
+- Production Machine Learning Pipeline
+- FastAPI REST API
+- Streamlit User Interface
+- SQLite Prediction Database
+- Automated Testing Framework
+- Code Quality Validation
+- Model & Data Quality Dashboard
+- Production Deployment Experimentation
 
 ---
 
 # Problem Statement
 
-Manual resume screening is time-consuming, inconsistent, and difficult to scale when organizations receive a large number of job applications. This project addresses the problem by developing an intelligent resume screening system capable of automatically classifying resumes into predefined job categories.
+Manual resume screening is time-consuming, inconsistent, and difficult to scale when organizations receive a large number of job applications.
+
+This project addresses this challenge by developing an intelligent resume screening system capable of automatically classifying resumes into predefined job categories while following production software engineering principles.
 
 ---
 
 # Dataset
 
-- **Dataset Name:** Resume Dataset
-- **File Format:** CSV
-- **Total Records:** 2,484
+- **Dataset:** Resume Dataset
+- **Source:** Kaggle
+- **Records:** 2,484
 - **Target Variable:** Category
-- **Number of Job Categories:** 24
+- **Number of Categories:** 24
 
-Main columns:
+Dataset columns:
 
 - ID
 - Resume_str
@@ -40,27 +69,63 @@ Main columns:
 
 # Technologies Used
 
+## Machine Learning
+
 - Python 3.11
-- Pandas
-- NumPy
 - Scikit-learn
 - TF-IDF Vectorizer
 - Random Forest Classifier
-- Streamlit
-- SQLite
+- NumPy
+- Pandas
 - Joblib
-- Matplotlib
+
+## Backend
+
+- FastAPI
+- Uvicorn
+- Pydantic
+
+## Frontend
+
+- Streamlit
+
+## Database
+
+- SQLite
+
+## Resume Processing
+
+- PyMuPDF
+- python-docx
+
+## Testing
+
+- PyTest
+- pytest-cov
+
+## Code Quality
+
+- Black
+- isort
+- Flake8
+
+## Research
+
 - Jupyter Notebook
+- Matplotlib
 
 ---
 
 # Machine Learning Pipeline
 
 ```
-Resume Text
+Resume Input
       │
       ▼
-Text Cleaning
+Security Validation
+      │
+      ▼
+Resume Preprocessing
       │
       ▼
 TF-IDF Feature Extraction
@@ -69,151 +134,273 @@ TF-IDF Feature Extraction
 Random Forest Classifier
       │
       ▼
-Predicted Job Category
+Prediction
+      │
+      ▼
+SQLite Database
 ```
 
 ---
 
 # Machine Learning Models Evaluated
 
+The following machine learning models were evaluated during the research phase:
+
 - Logistic Regression
 - Linear Support Vector Machine (Linear SVM)
 - Random Forest Classifier
 - Multinomial Naïve Bayes
 
-**Selected Model**
+### Selected Production Model
 
-Random Forest Classifier
-
----
-
-# GR4ML Views
-
-The project includes the following GR4ML views:
-
-- Business View
-- Analytics Design View
-- Data Preparation View
+**Random Forest Classifier**
 
 ---
 
-# Quality Requirements
+# Research vs Production
 
-The application was designed considering the following quality requirements:
+## Research Phase
 
-- Performance
-- Usability
-- Maintainability
+- Jupyter Notebook
+- Dataset exploration
+- Text preprocessing
+- Feature engineering
+- Model comparison
+- Performance evaluation
+
+## Production Phase
+
+- Modular package structure
+- REST API
+- Streamlit application
+- SQLite persistence
+- Logging
+- Automated testing
+- Security validation
+- Model quality metrics
+- Data quality metrics
+- Production experimentation
+
+---
+
+# Software Engineering Features
+
+The application implements the following software engineering practices:
+
+- Modular Architecture
+- Separation of Concerns
+- REST API
+- Input Validation
+- Exception Handling
+- Application Logging
+- SQLite Persistence
+- Automated Testing
+- Code Formatting
+- Static Code Analysis
+- Model Quality Evaluation
+- Data Quality Evaluation
+- Production Deployment Experimentation
 
 ---
 
 # System Architecture
 
-The application consists of both Machine Learning (ML) and Non-Machine Learning (Non-ML) components.
+The application consists of Machine Learning (ML) and Non-Machine Learning (Non-ML) components.
 
-## ML Components
+## Machine Learning Components
 
-- Resume Text Cleaning
-- TF-IDF Feature Extraction
-- Random Forest Classification
-- Job Category Prediction
-- Prediction Confidence
+- Resume preprocessing
+- TF-IDF feature extraction
+- Random Forest classifier
+- Prediction confidence
+- Model quality metrics
 
-## Non-ML Components
+## Non-Machine Learning Components
 
 - Streamlit User Interface
+- FastAPI REST API
 - SQLite Database
-- CQRS Command Module
-- CQRS Query Module
+- Security Validation
+- Logging
+- Testing Framework
 
 ---
 
-# Architectural Patterns Implemented
-
-## 1. Pipe-and-Filter
-
-Implemented in the machine learning pipeline:
+# Application Architecture
 
 ```
-Resume Input
-      │
-      ▼
-Text Cleaning
-      │
-      ▼
-TF-IDF Vectorizer
-      │
-      ▼
-Random Forest Classifier
-      │
-      ▼
-Prediction
-      │
-      ▼
-SQLite Storage
+                Streamlit UI
+                     │
+                     ▼
+              FastAPI REST API
+                     │
+                     ▼
+        Security & Input Validation
+                     │
+                     ▼
+         Random Forest ML Model
+                     │
+                     ▼
+          SQLite Prediction Database
 ```
 
-## 2. Command Query Responsibility Segregation (CQRS)
+---
 
-The application separates database write and read operations.
+# REST API
 
-### Command Side
+The application exposes REST endpoints using FastAPI.
 
-- create_database()
-- save_prediction()
+Available endpoints:
 
-Implemented in:
+- /
+- /health
+- /predict
 
-```
-app/commands.py
-```
-
-### Query Side
-
-- view_history()
-
-Implemented in:
+Swagger Documentation:
 
 ```
-app/queries.py
+http://127.0.0.1:8000/docs
 ```
+
+---
+
+# Logging
+
+Centralized logging is implemented using Python's logging module.
+
+Supported log levels:
+
+- INFO
+- WARNING
+- ERROR
+
+Logged events include:
+
+- Application startup
+- Prediction requests
+- Validation warnings
+- Model loading
+- Database operations
+- Unexpected exceptions
+
+---
+
+# Security Validation
+
+The application validates all user input before prediction.
+
+Implemented validation includes:
+
+- Empty input validation
+- Maximum length validation
+- HTML/script detection
+- SQL injection detection
+- API key detection
+- Credential detection
+- Private key detection
+- Suspicious input validation
+
+---
+
+# Automated Testing
+
+The project includes multiple levels of automated testing.
+
+A total of **13 automated tests** were successfully executed.
+
+### Software Engineering Tests
+
+- Unit Testing
+- API Testing
+- Integration Testing
+- Data Validation Testing
+
+### Machine Learning Component Tests
+
+- Model training validation
+- Inference validation
+- Prediction invariance validation
+
+---
+
+# Model and Data Quality Metrics
+
+## Model Quality Metrics
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+
+## Data Quality Metrics
+
+- Missing Value Rate
+- Duplicate Record Rate
+- Schema Validation
+- Class Distribution
+
+---
+
+# Production Deployment Experimentation
+
+The project demonstrates production deployment strategies through simulation.
+
+Implemented approaches:
+
+- Shadow Deployment
+- Canary Release
+- A/B Testing
 
 ---
 
 # Application Features
 
-- Resume text input
-- Automatic job category prediction
-- Prediction confidence score
+- Resume text prediction
+- PDF resume upload
+- DOCX resume upload
+- TXT resume upload
+- Prediction confidence
+- Top prediction probabilities
 - SQLite prediction history
-- Streamlit-based user interface
+- FastAPI REST API
+- Swagger documentation
+- Interactive Streamlit interface
+- Application log viewer
+- Model quality dashboard
+- Data quality dashboard
 
 ---
 
 # Project Structure
 
-```
-resume-screening-se4ml/
+```text
+resume-screening-se4ml-assignment2/
 
 │
 ├── app/
-│   ├── resume_app.py
-│   ├── commands.py
-│   └── queries.py
+│   ├── api/
+│   ├── core/
+│   ├── ml/
+│   ├── security/
+│   └── ui/
+│
+├── artifacts/
+│   ├── production/
+│   └── research/
 │
 ├── data/
-│   └── Resume.csv
 │
 ├── database/
-│   └── prediction_history.db
+│
+├── logs/
 │
 ├── models/
-│   └── resume_screening_model.pkl
+│   ├── production/
+│   └── research/
 │
 ├── notebooks/
-│   └── Group25.ipynb
 │
-├── screenshots/
+├── tests/
 │
 ├── requirements.txt
 │
@@ -222,12 +409,27 @@ resume-screening-se4ml/
 
 ---
 
-# How to Run
+# Reproducibility
+
+## Prerequisites
+
+- Python 3.11
+- Conda
+- Git
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Haridass-K/resume-screening-se4ml-assignment2.git
+
+cd resume-screening-se4ml-assignment2
+```
 
 ## Create Environment
 
 ```bash
 conda create -n resume-screening python=3.11
+
 conda activate resume-screening
 ```
 
@@ -237,32 +439,87 @@ conda activate resume-screening
 pip install -r requirements.txt
 ```
 
-## Launch Application
+## Code Quality Verification
 
 ```bash
-streamlit run app/resume_app.py
+black .
+
+isort .
+
+flake8 .
+
+pytest -v
+```
+
+## Dataset
+
+The Resume Dataset is not included due to repository size limitations.
+
+Download the dataset from:
+
+https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset
+
+Place it in:
+
+```
+data/Resume.csv
+```
+
+## Model
+
+The trained production model is included in:
+
+models/production/resume_screening_model.pkl
+
+The application can be executed directly without retraining.
+
+---
+
+# Running the Application
+
+## Start FastAPI
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Swagger:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## Launch Streamlit
+
+```bash
+streamlit run app/ui/streamlit_app.py
 ```
 
 ---
 
 # Expected Output
 
-The application allows users to:
+The application enables users to:
 
-- Enter resume text
-- Predict the most suitable job category
-- Display prediction confidence
-- Store prediction history
-- View previous predictions
+- Predict resume category
+- Upload PDF, DOCX, and TXT resumes
+- View prediction confidence
+- View top prediction probabilities
+- Access REST APIs
+- View Swagger documentation
+- Monitor application logs
+- View model quality metrics
+- View data quality metrics
+- Review production deployment experiments
 
 ---
 
-# Repository
-
-GitHub Repository:
+# GitHub Repository
 
 ```
-https://github.com/Haridass-K/resume-screening-se4ml
+https://github.com/Haridass-K/resume-screening-se4ml-assignment2
 ```
 
 ---
@@ -271,19 +528,20 @@ https://github.com/Haridass-K/resume-screening-se4ml
 
 **Group No:** 25
 
-| Name | Contribution |
-|------|--------------|
-| Haridass K | Machine learning model development, feature engineering, software architecture implementation, Streamlit application development, and report preparation |
-| Sathish T | Requirements analysis, GR4ML Business View, and documentation support |
-| Tejaal M | Data preparation, preprocessing, model evaluation, and GR4ML Analytics & Data Preparation Views |
-| Sanjayan S | Prototype testing, architecture diagrams, screenshots, and documentation support |
+| BITS ID | Name | Email |
+|----------|------|-------|
+| 2024AC05325 | Haridass K | 2024ac05325@wilp.bits-pilani.ac.in |
+| 2024AC05104 | Sathish T | 2024ac05104@wilp.bits-pilani.ac.in |
+| 2024AC05651 | Tejaal M | 2024ac05651@wilp.bits-pilani.ac.in |
+| 2024AC05728 | Sanjayan S | 2024ac05728@wilp.bits-pilani.ac.in |
 
 ---
 
 # Conclusion
 
-The AI-Powered Resume Screening and Job Role Prediction System successfully demonstrates the integration of Software Engineering for Machine Learning principles with Natural Language Processing and Machine Learning. The application applies the GR4ML framework, implements Pipe-and-Filter and CQRS architectural patterns, and provides a working Streamlit-based prototype for automated resume classification.
+The **Production-Ready AI Resume Screening and Job Role Prediction System** demonstrates how software engineering principles can be successfully integrated into a machine learning application.
 
+The project extends a research prototype into a modular production-ready system by implementing REST APIs, automated testing, logging, security validation, model and data quality evaluation, and production deployment experimentation while maintaining a scalable, maintainable, and reliable software architecture.
 
 ---
 
@@ -291,15 +549,13 @@ The AI-Powered Resume Screening and Job Role Prediction System successfully demo
 
 ## Dataset
 
-The original resume dataset is not included in this compressed submission because of the file size limitations of the Taxila LMS.
+The dataset is excluded from this repository because of GitHub and LMS file size limitations.
 
-If retraining the machine learning model is required, download the dataset from:
-
-**Kaggle Resume Dataset**
+Download it from:
 
 https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset
 
-Place the downloaded dataset in:
+Place it in:
 
 ```
 data/Resume.csv
@@ -309,75 +565,30 @@ data/Resume.csv
 
 ## Trained Model
 
-The pre-trained Random Forest model is included in this submission:
+The trained production model is included in:
 
 ```
-models/resume_screening_model.pkl
+models/production/
 ```
 
-Therefore, the Streamlit application can be executed directly without retraining the model.
+No retraining is required to execute the application.
 
 ---
 
 ## Complete Project
 
-The complete project, including:
+The GitHub repository includes:
 
-- Source code
-- Dataset
-- Jupyter Notebook
-- Architecture diagrams
-- Screenshots
-- Final report
+- Production source code
+- Research notebook
+- FastAPI backend
+- Streamlit frontend
+- Production model
+- Automated tests
+- Documentation
 - Requirements file
 
-is available in the GitHub repository below:
-
-```
-https://github.com/Haridass-K/resume-screening-se4ml
-```
-
-If any supporting file is unavailable in this compressed submission due to LMS upload size limitations, please refer to the GitHub repository.
-
 ---
+# Disclaimer
 
-## Running the Project
-
-1. Create the Python environment.
-
-```bash
-conda create -n resume-screening python=3.11
-conda activate resume-screening
-```
-
-2. Install the required packages.
-
-```bash
-pip install -r requirements.txt
-```
-
-3. If retraining is required, download the dataset and place it in:
-
-```
-data/Resume.csv
-```
-
-4. Launch the Streamlit application.
-
-```bash
-streamlit run app/resume_app.py
-```
-
-Alternatively, open:
-
-```
-notebooks/Group25.ipynb
-```
-
-and execute all cells to regenerate the machine learning model.
-
----
-
-## Submission Note
-
-This compressed submission has been prepared to comply with the file upload limitations of the Taxila LMS. The GitHub repository contains the complete project and all supporting files required for evaluation.
+This project has been developed solely for academic purposes as part of the **Software Engineering for Machine Learning** course at **BITS Pilani Work Integrated Learning Programme (WILP)**. It is intended for educational demonstration and evaluation only and should not be used as a production recruitment or resume screening system.

@@ -1,23 +1,56 @@
+# ==========================================================
+# AI Resume Screening System
+# Software Engineering for Machine Learning - Assignment 2
+# ==========================================================
+
+# ----------------------------
 # Machine Learning
-pandas
+# ----------------------------
 numpy
+pandas
 scikit-learn
 joblib
 
-# Web Applications
+# ----------------------------
+# Web Framework
+# ----------------------------
 fastapi
 uvicorn
 streamlit
 pydantic
 
-# Development
+# ----------------------------
+# HTTP Client
+# ----------------------------
+requests
+
+# ----------------------------
+# Resume File Processing
+# ----------------------------
+PyMuPDF
+python-docx
+
+# ----------------------------
+# Database
+# ----------------------------
+# Uses Python built-in sqlite3 (no installation required)
+
+# ----------------------------
+# Development & Testing
+# ----------------------------
 pytest
 pytest-cov
+
+# ----------------------------
+# Code Quality
+# ----------------------------
 black
 flake8
 isort
 
+# ----------------------------
 # Research Notebook
-matplotlib
+# ----------------------------
 jupyter
 notebook
+matplotlib

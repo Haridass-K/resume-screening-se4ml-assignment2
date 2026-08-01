@@ -1,7 +1,7 @@
 import pytest
 
 from app.ml.predict import predict_resume
-from app.ml.preprocessing import clean_resume
+from app.ml.preprocess import clean_resume
 
 
 def test_clean_resume():
